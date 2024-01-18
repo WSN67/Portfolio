@@ -1,3 +1,34 @@
+var slide_index = 0;
+
+/**
+ * slides the images for the slideshow
+ */
+function slide_images() {
+    
+    
+    // get all the images for the slideshow
+    const slideshow_img_tab = document.getElementsByClassName("slideshow_img");
+    let tab_length = slideshow_img_tab.length;
+    
+    slideshow_img_tab[slide_index].style.display = "flex";
+    // hides the other images
+    for (let i = 0; i < tab_length; i++) {
+        if(i == slide_index){
+            slideshow_img_tab[i].style.display = "flex";
+        }        
+        else{
+            slideshow_img_tab[i].style.display = "none";
+        }
+    }
+    slide_index= (slide_index + 1) % tab_length;
+
+
+    // launches another slideshow every 2.5 seconds
+    setTimeout(slide_images,3500);
+    ;
+}
+
+
 /**
  * change to desktop view if elements cannot wrap 
  */ 
@@ -23,4 +54,11 @@ function changeview() {
     }
 }
 
-changeview();
+
+function main() {
+    // changeview();
+    slide_images();
+}
+
+
+main();
