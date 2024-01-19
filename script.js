@@ -9,19 +9,34 @@ function slide_images() {
     // get all the images for the slideshow
     const slideshow_img_tab = document.getElementsByClassName("slideshow_img");
     let tab_length = slideshow_img_tab.length;
+    let next_index = ( slide_index + 1 ) % tab_length;
     
+    // current picture must slide-out
+    slideshow_img_tab[slide_index].classList.add("slide-out");
+    
+
+
     slideshow_img_tab[slide_index].style.display = "flex";
     // hides the other images
     for (let i = 0; i < tab_length; i++) {
-        if(i == slide_index){
-            slideshow_img_tab[i].style.display = "flex";
-        }        
-        else{
+        if(i != slide_index){
             slideshow_img_tab[i].style.display = "none";
         }
     }
-    slide_index= (slide_index + 1) % tab_length;
 
+        // permutes class names for the next picture
+    if(slideshow_img_tab[next_index].classList.contains("slide-in")){
+        // slideshow_img_tab[next_index].classList.remove("slide-in")
+        slideshow_img_tab[next_index].setAttribute("class","slide-out")
+    }
+    else{
+        // slideshow_img_tab[next_index].classList.remove("slide-out")
+        slideshow_img_tab[next_index].setAttribute("class","slide-in")
+    }
+
+
+    // increments index
+    slide_index= next_index;
 
     // launches another slideshow every 2.5 seconds
     setTimeout(slide_images,3500);
@@ -57,7 +72,7 @@ function changeview() {
 
 function main() {
     // changeview();
-    slide_images();
+    // slide_images();
 }
 
 

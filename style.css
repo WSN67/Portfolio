@@ -43,7 +43,6 @@ button {
 div {
     display: flex;
     flex-wrap: wrap;
-    /* si on enlève wrap le slideshow s'affiche derrière*/
     justify-content: center;
     align-items: center;
     background-color: #951791;
@@ -61,6 +60,8 @@ div {
     width: 80%;
     height: 80%;
     background-color: beige;
+    overflow: hidden;
+
 }
 
 .start_btn {
@@ -70,8 +71,28 @@ div {
 }
 
 img {
-    width: 80%;
     height: 100%;
     background-color: chocolate;
-    /* // TODO transition pour le slideshow */
+}
+
+@keyframes my_autoplay {
+    0% {
+        top: 100%;
+    }
+
+    4% {
+        top: 0%;
+    }
+
+    33.33% {
+        top: 0%;
+    }
+
+    37.33% {
+        top: -100%;
+    }
+
+    100% {
+        top: -100%;
+    }
 }
