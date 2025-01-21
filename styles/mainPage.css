@@ -85,6 +85,8 @@ span {
     width: 10vw;
     height: 10vw;
     min-width: 50px;
+    max-width: 100px;
+    max-height: 100px;
     min-height: 50px;
     margin:20px;
     cursor:pointer;
@@ -102,9 +104,60 @@ span {
     box-shadow: 0px 0px 10px var(--ButtonsColor-NightMode);
 }
 
-.mainPageContainer {
+#mainPageContainer {
+    
     width: 100%;
     height: 100%;
     display: flex;
+    align-items: center;
+    justify-content:space-around;
+    flex-direction: row;
     background-color: var(--BackgroundColor-NightMode);
 }
+
+section {
+    display: flex;
+    width: 40vw;
+    height: 45vh;
+    text-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+
+    font-size: 1.1em;
+}
+
+#mainPageList {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 30%;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+}
+
+.listSkillItem {
+    cursor: pointer; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 20%;
+    padding: 15px;
+}
+
+.listSkillItem:hover {
+    color: var(--BackgroundTextColor-NightMode);
+    text-decoration: underline;
+    border: var(--BackgroundOverlayColor-NightMode) solid 2px;
+    border-radius: 10px;
+}
+
+p {
+    cursor: default;
+}
+
+
+

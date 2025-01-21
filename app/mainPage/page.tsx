@@ -1,7 +1,9 @@
 import Avatar from "@/components/Avatar";
 import "@/styles/mainPage.css";
+import Link from "next/link";
 
 export default function MainPage() {
+
     return (
         <main>
             <span>
@@ -10,12 +12,17 @@ export default function MainPage() {
             </span>
             <div id="mainPageContainer">
                 <Avatar />
-                <p id="description"></p>
-                <ul id="mainPageList">
-                    <li className="listSkillItem">List of Dev Skills</li>
-                    <li className="listSkillItem">Contact</li>
-                    <li className="listSkillItem">Quit Game</li>
-                </ul>
+                <section>
+                    <p id="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto earum in nisi, vel perspiciatis reiciendis quibusdam suscipit sapiente consectetur, vitae officia mollitia totam? Ut, earum. Labore explicabo quia voluptas dolorem?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto earum in nisi, vel perspiciatis reiciendis quibusdam suscipit sapiente consectetur, vitae officia mollitia totam? Ut, earum. Labore explicabo quia voluptas dolorem?</p>
+                    <ul id="mainPageList">
+                        <li className="listSkillItem">About me</li>
+                        <li className="listSkillItem">List of Dev Skills</li>
+                        <li className="listSkillItem">Contact</li>
+                        <li className="listSkillItem">
+                            <Link href={"/"}>Quit Game</Link>                
+                        </li>
+                    </ul>
+                </section>
             </div>
         </main>
     );
