@@ -1,4 +1,4 @@
-import Avatar from "../Components/Avatar";
+import Avatar from "../components/Avatar";
 import "../styles/App.css";
 
 export default function Home() {
