@@ -8,6 +8,7 @@ export default function Avatar() {
             alt="Image replacing Avatar"
             width={100}
             height={100}
+            priority={true}
             />
     );
 }
