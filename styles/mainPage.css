@@ -96,3 +96,8 @@ span {
     background-color: var(--BackgroundTextColor-NightMode);
     transition: ease-in-out 0.2s;
 }
+
+.SettingsButton:hover {
+    border: solid var(--ButtonsColor-NightMode) 2px;
+    box-shadow: 0px 0px 10px var(--ButtonsColor-NightMode);
+}
