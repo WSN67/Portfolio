@@ -86,12 +86,17 @@ span {
 }
 
 .PlayButton {
-    font-size: 7vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10vw;
     font-weight: bold;
-    width: 70vw;
+    width: 50vw;
+    min-width: 180px;
     max-width: 800px;
-    
+    text-align:center;
     height: 15vh;
+    min-height: fit-content;
     max-height: 300px;
     border:none;
     border-radius: 45px;
