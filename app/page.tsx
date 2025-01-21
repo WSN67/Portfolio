@@ -1,17 +1,11 @@
 "use client"
 import Avatar from "../components/Avatar";
 import "../styles/App.css";
-import Router, { useRouter } from "next/navigation";
+import Link from "next/link";
 
-
-function openMainPage() {
-  console.log("Opening Main Page");    
-}
 
 export default function Home() {
-  
-  const router = useRouter();
-  
+    
   return (
     <main>
       <span>
@@ -19,7 +13,7 @@ export default function Home() {
         <button className="SettingsButton"></button>
       </span>
       <Avatar />
-      <button type="button" className="PlayButton" onClick={() => router.push("/mainPage")}>PLAY</button>
+      <Link href="/mainPage" className="PlayButton">PLAY</Link>
     </main>
   );
 }
