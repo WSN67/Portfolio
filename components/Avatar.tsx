@@ -1,8 +1,13 @@
+import Image from "next/image";
+
 export default function Avatar() {
     return (
-        <img
+        <Image
             className="AvatarContainerSubstitute"
-            src="../public/programming-dark.svg"
-        ></img>
+            src="/programming-dark.svg"
+            alt="Image replacing Avatar"
+            width={100}
+            height={100}
+            />
     );
 }
