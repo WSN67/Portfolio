@@ -1,8 +1,17 @@
+"use client"
 import Avatar from "@/components/Avatar";
 import "@/styles/mainPage.css";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function MainPage() {
+
+
+    const [URLquery, setURLquery] = useState("");
+
+    useEffect(() => {
+        setURLquery(window.location.search.toString().substring(1));
+    },[]);  
 
     return (
         <main>
@@ -19,7 +28,7 @@ export default function MainPage() {
                         <li className="listSkillItem">List of Dev Skills</li>
                         <li className="listSkillItem">Contact</li>
                         <li className="listSkillItem">
-                            <Link href={{pathname:"/",query: window.location.search.toString().substring(1)}}>Quit Game</Link>                
+                            <Link href={{pathname:"/",query: URLquery}}>Quit Game</Link>                
                         </li>
                     </ul>
                 </section>
