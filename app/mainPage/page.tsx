@@ -19,7 +19,7 @@ export default function MainPage() {
                         <li className="listSkillItem">List of Dev Skills</li>
                         <li className="listSkillItem">Contact</li>
                         <li className="listSkillItem">
-                            <Link href={"/"}>Quit Game</Link>                
+                            <Link href={{pathname:"/",query:window.location.search.toString().substring(1)}}>Quit Game</Link>                
                         </li>
                     </ul>
                 </section>
