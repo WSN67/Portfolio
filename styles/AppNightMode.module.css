@@ -1,0 +1,24 @@
+.MainTitle {
+    color: var(--TextColor-NightMode);
+}
+
+.PlayButton {
+    color: var(--BackgroundColor-NightMode);
+    background-color: var(--BackgroundTextColor-NightMode);
+    box-shadow: 5px 5px 5px var(--ButtonsColor-NightMode);
+}
+
+
+.PlayButton:hover {    
+    border: solid var(--ButtonsColor-NightMode) 2px;
+}
+
+
+.SettingsButton {
+    background-color: var(--BackgroundTextColor-NightMode);
+    box-shadow:5px 5px 5px var(--ButtonsColor-NightMode);
+}
+
+.SettingsButton:hover {
+    border: solid var(--ButtonsColor-NightMode) 2px;
+}

@@ -1,0 +1,25 @@
+.MainTitle {
+    color: var(--TextColor-LightMode);
+}
+
+.PlayButton {
+    color: var(--TextColor-LightMode);
+    background-color: var(--ButtonsColor-LightMode);
+    box-shadow: none;
+    border: solid var(--TextColor-LightMode) 2px;
+}
+
+
+.PlayButton:hover {    
+    border: solid var(--TextColor-LightMode) 2px;
+}
+
+
+.SettingsButton {
+    background-color: var(--ButtonsColor-LightMode);
+    box-shadow: 5px 5px 5px var(--TextColor-LightMode);
+}
+
+.SettingsButton:hover {
+    box-shadow: 5px 5px 5px var(--TextColor-LightMode);
+}

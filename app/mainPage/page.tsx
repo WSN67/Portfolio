@@ -17,7 +17,7 @@ export default function MainPage() {
         <main>
             <span>
                 <h1 className="MainTitle">PORTFOLIO</h1>
-                <button className="SettingsButton"></button>
+                <button className="SettingsButton ButtonHoverEffect ButtonActiveEffect"></button>
             </span>
             <div id="mainPageContainer">
                 <Avatar />

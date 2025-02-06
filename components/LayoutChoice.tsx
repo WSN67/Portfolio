@@ -38,7 +38,7 @@ export default function LayoutChoice({setDesktopLayout, setLayoutChoiceMade} : L
   return (
 
     <main id="LayoutChoiceContainer">
-        <h1> What device are you on ?</h1>
+        <h1 style={{ color: "white" }}> What device are you on ?</h1>
         <button className="LayoutButton" onClick={() => pushLayoutinURL("Desktop")}>Desktop</button>
         <button className="LayoutButton" onClick={() => pushLayoutinURL("Mobile")}>Mobile / Tablet</button>      
     </main>
