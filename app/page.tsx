@@ -6,19 +6,31 @@ import LayoutChoice from "../components/LayoutChoice";
 import { useEffect, useState } from "react";
 
 
+import NightMode from "../styles/AppNightMode.module.css";
+import LightMode from "../styles/AppLightMode.module.css";
+
 export default function Home() {
 
+  // device
   const [desktopLayout,setDesktopLayout] = useState(false);
   const [mobileLayout,setMobileLayout] = useState(false);
   const [layoutChoiceMade,setLayoutChoiceMade] = useState(false);
   const [isLoaded,setIsLoaded] = useState(false);
+
+  // style
+  const [style,setStyle] = useState(NightMode);
+  const BackgroundColorNightMode: string = "#333333";
+  const BackgroundColorLightMode: string = "#d7a7a7cc";
+  
+  // url query handler
   let intervalID: NodeJS.Timeout;
 
 
   useEffect(() => {
-    setIsLoaded(true);
+    document.getElementsByTagName("html")[0].style.backgroundColor = BackgroundColorNightMode;
+    setIsLoaded(true);        
   },[]);
-
+  
 
   // clears interval when layout choice is made
   useEffect(() => { 
@@ -33,7 +45,6 @@ export default function Home() {
     if (intervalID) {
       clearInterval(intervalID);      
     }
-
     intervalID = setInterval(() => {
       if(window.location.search.includes("Layout=Desktop")){
         setDesktopLayout(true);
@@ -46,14 +57,22 @@ export default function Home() {
   },[URLSearchParams]);
       
 
+  function toggleLightMode():void {
+    setStyle(style === NightMode ? LightMode : NightMode);
+    document.getElementsByTagName("html")[0].style.backgroundColor = style === NightMode ? 
+    BackgroundColorLightMode :  BackgroundColorNightMode;
+  }
+
+
+
   return (
     <main>
       <span>
-        <h1 className="MainTitle">PORTFOLIO</h1>
-        <button className="SettingsButton" ></button>
+        <h1 className={[style.MainTitle,"MainTitle"].join(' ')}>PORTFOLIO</h1>
+        <button onClick={toggleLightMode} className={[style.SettingsButton,"SettingsButton ButtonHoverEffect ButtonActiveEffect"].join(' ')} ></button>
       </span>
       {
-        layoutChoiceMade ? <><Avatar /><Link href= {{pathname:"/mainPage", query: window.location.search.toString().substring(1)}} className="PlayButton">PLAY</Link></> 
+        layoutChoiceMade ? <><Avatar /><Link href= {{pathname:"/mainPage", query: window.location.search.toString().substring(1)}} className={[style.PlayButton,"PlayButton ButtonHoverEffect ButtonActiveEffect"].join(' ')}>PLAY</Link></> 
         : <LayoutChoice setDesktopLayout={setDesktopLayout} setLayoutChoiceMade={setLayoutChoiceMade}/>
       }
     </main>
