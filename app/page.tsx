@@ -29,7 +29,16 @@ export default function Home() {
 
 
   useEffect(() => {
+    //update background color
     document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorNightMode;
+    
+    // create or update cookie : theme
+    let retCC = utils.createCookie("theme","nightMode",new Date(Date.now() + 30 * utils.oneDay));
+    if(retCC === -1) {
+      if(utils.cookieValueMatch("theme","lightMode")) {
+        setStyle(LightMode);
+      }
+    }
     setIsLoaded(true);
   },[]);
   
@@ -41,8 +50,10 @@ export default function Home() {
     }
   },[layoutChoiceMade]);
 
-  // clears interval if user refreshes page and 
-  // create a new one to check if a layout has been chosen
+  /*
+   clears interval if user refreshes page and 
+   create a new one to check if a layout has been chosen
+  */
   useEffect(() => {
     if (intervalID) {
       clearInterval(intervalID);      
