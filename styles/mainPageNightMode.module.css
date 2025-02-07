@@ -1,0 +1,16 @@
+.description {
+    color:white;
+}
+
+.listSkillItem {
+    color: white;
+}
+
+.quitGameButton {
+    text-decoration: none;
+    color: white;
+}
+
+.quitGameButton:hover {
+    color: var(--BackgroungTextColor-NightMode)
+}

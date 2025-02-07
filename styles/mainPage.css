@@ -4,7 +4,6 @@ html {
     height:100%;
     margin:0;
     padding:0;
-    background-color: var(--BackgroundColor-NightMode);
 }
 
 body {
@@ -82,15 +81,19 @@ span {
     background-size: cover;
     border:none;
     border-radius: 10px;
-    box-shadow:5px 5px 5px var(--ButtonsColor-NightMode);
-    background-color: var(--BackgroundTextColor-NightMode);
+
     transition: ease-in-out 0.2s;
 }
 
-.SettingsButton:hover {
-    border: solid var(--ButtonsColor-NightMode) 2px;
-    box-shadow: 0px 0px 10px var(--ButtonsColor-NightMode);
+.ButtonHoverEffect:hover {
+    transform: scale(0.8);
+    transition: ease-in-out 0.4s;
 }
+
+.ButtonActiveEffect:active {
+    transform: scale(0.6);
+}
+
 
 #mainPageContainer {
     
@@ -100,6 +103,8 @@ span {
     align-items: center;
     justify-content:space-around;
     flex-direction: row;
+
+
     background-color: var(--BackgroundColor-NightMode);
 }
 
@@ -111,7 +116,6 @@ section {
     flex-direction: column;
     align-items: center;
     padding: 10px;
-
     font-size: 1.1em;
 }
 
@@ -136,37 +140,14 @@ section {
 }
 
 .listSkillItem:hover {
-    color: var(--BackgroundTextColor-NightMode);
     text-decoration: underline;
-    border: var(--BackgroundOverlayColor-NightMode) solid 2px;
     border-radius: 10px;
+
+    color: var(--BackgroundTextColor-NightMode);
+    border: var(--BackgroundOverlayColor-NightMode) solid 2px;
 }
 
 p {
     cursor: default;
     padding: 20px;
-}
-
-
-/* TODO ask user at the beginning of the site which display he wants*/
-@media (max-width: 1500px) or (max-height: 800px) {
-    #mainPageContainer {
-        flex-direction: column;
-        height: 30%;
-    }
-    .AvatarContainerSubstitute {
-        max-width: 50vw;
-        max-height:20vh;
-    }
-    .SettingsButton {
-        width: fit-content;
-        height: fit-content;
-    }
-    section {
-        width: 80%;
-        height: 50vh;
-    }
-    p {
-        font-size: 80%;
-    }
 }
