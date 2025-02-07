@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import NightMode from "../../styles/mainPageNightMode.module.css";
 import LightMode from "../../styles/mainPageLightMode.module.css";
 import { BackgroundColorNightMode, BackgroundColorLightMode } from "../utils/index";
+import * as utils from "../utils/index";
 
 export default function MainPage() {
 
@@ -17,14 +18,30 @@ export default function MainPage() {
 
     useEffect(() => {
         setURLquery(window.location.search.toString().substring(1));
-        // NightModeEnable ? setStyle(NightMode) : setStyle(LightMode);
+            //update background color
+            let themeCookie = utils.getCookieValue("theme");
+            if(themeCookie === "lightMode") {
+              document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorLightMode;
+            }
+            else {
+              document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorNightMode;
+            }
+        
     },[]);  
 
-    function toggleLightMode():void {
-        setStyle(style === NightMode ? LightMode : NightMode);
-        document.getElementsByTagName("html")[0].style.backgroundColor = style === NightMode ? 
-        BackgroundColorLightMode :  BackgroundColorNightMode;        
-      }
+  // toggles between light and night mode
+  function toggleLightMode():void {
+    if (style === LightMode) {
+      setStyle(NightMode);
+      utils.setCookie("theme","nightMode");
+      document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorNightMode;
+    }
+    else {
+      setStyle(LightMode);
+      utils.setCookie("theme","lightMode");
+      document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorLightMode;
+    }
+  }
 
     return (
         <main>
