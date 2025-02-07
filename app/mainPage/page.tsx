@@ -4,21 +4,35 @@ import "@/styles/mainPage.css";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function MainPage() {
+// import NightMode from "../styles/mainPageNightMode.module.css";
+import NightMode from "../../styles/mainPageNightMode.module.css";
+import LightMode from "../../styles/mainPageLightMode.module.css";
+import { BackgroundColorNightMode, BackgroundColorLightMode } from "../utils/index";
+
+export default function MainPage(NightModeEnable: boolean) {
 
 
     const [URLquery, setURLquery] = useState("");
+    const [style, setStyle] = useState(NightMode);
+
 
     useEffect(() => {
         setURLquery(window.location.search.toString().substring(1));
+        NightModeEnable ? setStyle(NightMode) : setStyle(LightMode);
     },[]);  
+
+    function toggleLightMode():void {
+        setStyle(style === NightMode ? LightMode : NightMode);
+        document.getElementsByTagName("html")[0].style.backgroundColor = style === NightMode ? 
+        BackgroundColorLightMode :  BackgroundColorNightMode;        
+      }
 
     return (
         <main>
             <span>
                 <h1 className="MainTitle">PORTFOLIO</h1>
-                <button className="SettingsButton ButtonHoverEffect ButtonActiveEffect"></button>
-            </span>
+                <button onClick={toggleLightMode} className={[style.SettingsButton,"SettingsButton ButtonHoverEffect ButtonActiveEffect"].join(' ')} ></button>
+                </span>
             <div id="mainPageContainer">
                 <Avatar />
                 <section>
