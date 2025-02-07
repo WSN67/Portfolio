@@ -71,9 +71,14 @@ export default function Home() {
       
 
   function toggleLightMode():void {
-    setStyle(style === NightMode ? LightMode : NightMode);
-    document.getElementsByTagName("html")[0].style.backgroundColor = style === NightMode ? 
-    utils.BackgroundColorLightMode :  utils.BackgroundColorNightMode;
+    if (style === LightMode) {
+      setStyle(NightMode);
+      document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorNightMode;
+    }
+    else {
+      setStyle(LightMode);
+      document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorLightMode;
+    }
   }
 
 
