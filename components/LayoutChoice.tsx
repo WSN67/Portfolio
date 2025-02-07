@@ -5,27 +5,29 @@ import { useEffect, useState } from "react";
 interface LayoutChoiceProps {
 
   setDesktopLayout: Function;
-
   setLayoutChoiceMade: Function;
-
+  style: { 
+    LayoutButton: string,
+    deviceChoiceTitle: string
+   };
 }
 
 
-export default function LayoutChoice({setDesktopLayout, setLayoutChoiceMade} : LayoutChoiceProps) {
-  let searchParams: URLSearchParams;
+export default function LayoutChoice({setDesktopLayout, setLayoutChoiceMade, style} : LayoutChoiceProps) {
   const [isLoaded,setIsLoaded] = useState(false);
-
 
   useEffect(() => {
     setIsLoaded(true);
   },[]);
 
   useEffect(() => {
+    let searchParams: URLSearchParams = new URLSearchParams();
     searchParams = new URLSearchParams(window.location.search);
   },[isLoaded]);
 
 
   function pushLayoutinURL(layout: string):void {
+    const searchParams = new URLSearchParams(window.location.search);
     searchParams.set("Layout", layout);
           const newUrl = `${window.location.pathname}?${searchParams.toString()}`;
           window.history.pushState({}, '', newUrl);
@@ -33,14 +35,12 @@ export default function LayoutChoice({setDesktopLayout, setLayoutChoiceMade} : L
           setLayoutChoiceMade(true);
   };
 
-  // TODO then => set up styles based on layout
-
   return (
 
     <main id="LayoutChoiceContainer">
-        <h1 style={{ color: "white" }}> What device are you on ?</h1>
-        <button className="LayoutButton" onClick={() => pushLayoutinURL("Desktop")}>Desktop</button>
-        <button className="LayoutButton" onClick={() => pushLayoutinURL("Mobile")}>Mobile / Tablet</button>      
+        <h1 className={[style.deviceChoiceTitle,"deviceChoiceTitle"].join(' ')}> What device are you on ?</h1>
+        <button className={[style.LayoutButton,"LayoutButton"].join(' ')} onClick={() => pushLayoutinURL("Desktop")}>Desktop</button>
+        <button className={[style.LayoutButton,"LayoutButton"].join(' ')} onClick={() => pushLayoutinURL("Mobile")}>Mobile / Tablet</button>      
     </main>
   );
 }
