@@ -5,6 +5,8 @@ import Link from "next/link";
 import LayoutChoice from "../components/LayoutChoice";
 import { useEffect, useState } from "react";
 
+import { BackgroundColorNightMode, BackgroundColorLightMode } from "./utils/index";
+
 
 import NightMode from "../styles/AppNightMode.module.css";
 import LightMode from "../styles/AppLightMode.module.css";
@@ -19,8 +21,7 @@ export default function Home() {
 
   // style
   const [style,setStyle] = useState(NightMode);
-  const BackgroundColorNightMode: string = "#333333";
-  const BackgroundColorLightMode: string = "#d7a7a7cc";
+
   
   // url query handler
   let intervalID: NodeJS.Timeout;
@@ -28,7 +29,7 @@ export default function Home() {
 
   useEffect(() => {
     document.getElementsByTagName("html")[0].style.backgroundColor = BackgroundColorNightMode;
-    setIsLoaded(true);        
+    setIsLoaded(true);     
   },[]);
   
 
@@ -72,8 +73,8 @@ export default function Home() {
         <button onClick={toggleLightMode} className={[style.SettingsButton,"SettingsButton ButtonHoverEffect ButtonActiveEffect"].join(' ')} ></button>
       </span>
       {
-        layoutChoiceMade ? <><Avatar /><Link href= {{pathname:"/mainPage", query: window.location.search.toString().substring(1)}} className={[style.PlayButton,"PlayButton ButtonHoverEffect ButtonActiveEffect"].join(' ')}>PLAY</Link></> 
-        : <LayoutChoice setDesktopLayout={setDesktopLayout} setLayoutChoiceMade={setLayoutChoiceMade}/>
+        layoutChoiceMade ? <><Avatar /><Link href= {{pathname:"/mainPage", query: window.location.search.toString().substring(1)}} className={[style.PlayButton,"PlayButton ButtonHoverEffect ButtonActiveEffect"].join(' ')}  >PLAY</Link></> 
+        : <LayoutChoice setDesktopLayout={setDesktopLayout} setLayoutChoiceMade={setLayoutChoiceMade} style={{ LayoutButton: style.LayoutButton, deviceChoiceTitle: style.deviceChoiceTitle }}/>
       }
     </main>
   );
