@@ -5,11 +5,13 @@ import Link from "next/link";
 import LayoutChoice from "../components/LayoutChoice";
 import { useEffect, useState } from "react";
 
-import { BackgroundColorNightMode, BackgroundColorLightMode } from "./utils/index";
-
 
 import NightMode from "../styles/AppNightMode.module.css";
 import LightMode from "../styles/AppLightMode.module.css";
+
+// import { BackgroundColorNightMode, BackgroundColorLightMode, getCookies, cookieValueMatch } from "./utils/index";
+import * as utils from "./utils/index";
+
 
 export default function Home() {
 
@@ -22,14 +24,13 @@ export default function Home() {
   // style
   const [style,setStyle] = useState(NightMode);
 
-  
   // url query handler
   let intervalID: NodeJS.Timeout;
 
 
   useEffect(() => {
-    document.getElementsByTagName("html")[0].style.backgroundColor = BackgroundColorNightMode;
-    setIsLoaded(true);     
+    document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorNightMode;
+    setIsLoaded(true);
   },[]);
   
 
@@ -61,7 +62,7 @@ export default function Home() {
   function toggleLightMode():void {
     setStyle(style === NightMode ? LightMode : NightMode);
     document.getElementsByTagName("html")[0].style.backgroundColor = style === NightMode ? 
-    BackgroundColorLightMode :  BackgroundColorNightMode;
+    utils.BackgroundColorLightMode :  utils.BackgroundColorNightMode;
   }
 
 
@@ -73,7 +74,7 @@ export default function Home() {
         <button onClick={toggleLightMode} className={[style.SettingsButton,"SettingsButton ButtonHoverEffect ButtonActiveEffect"].join(' ')} ></button>
       </span>
       {
-        layoutChoiceMade ? <><Avatar /><Link href= {{pathname:"/mainPage", query: window.location.search.toString().substring(1)}} className={[style.PlayButton,"PlayButton ButtonHoverEffect ButtonActiveEffect"].join(' ')}  >PLAY</Link></> 
+        layoutChoiceMade ? <><Avatar /><Link href= {{pathname:"/mainPage", query: window.location.search.toString().substring(1)}} className={[style.PlayButton,"PlayButton ButtonHoverEffect ButtonActiveEffect"].join(' ')}>PLAY</Link></> 
         : <LayoutChoice setDesktopLayout={setDesktopLayout} setLayoutChoiceMade={setLayoutChoiceMade} style={{ LayoutButton: style.LayoutButton, deviceChoiceTitle: style.deviceChoiceTitle }}/>
       }
     </main>
