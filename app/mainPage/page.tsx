@@ -4,12 +4,11 @@ import "@/styles/mainPage.css";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-// import NightMode from "../styles/mainPageNightMode.module.css";
 import NightMode from "../../styles/mainPageNightMode.module.css";
 import LightMode from "../../styles/mainPageLightMode.module.css";
 import { BackgroundColorNightMode, BackgroundColorLightMode } from "../utils/index";
 
-export default function MainPage(NightModeEnable: boolean) {
+export default function MainPage() {
 
 
     const [URLquery, setURLquery] = useState("");
@@ -18,7 +17,7 @@ export default function MainPage(NightModeEnable: boolean) {
 
     useEffect(() => {
         setURLquery(window.location.search.toString().substring(1));
-        NightModeEnable ? setStyle(NightMode) : setStyle(LightMode);
+        // NightModeEnable ? setStyle(NightMode) : setStyle(LightMode);
     },[]);  
 
     function toggleLightMode():void {
