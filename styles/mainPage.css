@@ -1,14 +1,3 @@
-* {
-    font-family: 'Arial';
-
-    --BackgroundColor-NightMode: #333333;
-    --TextColor-NightMode: #FF8C66;
-    --BackgroundTextColor-NightMode: #2ACCFE;
-    --BackgroundOverlayColor-NightMode: #58BF03;
-    --ButtonsColor-NightMode: #FEA4E6;
-    
-    letter-spacing: 0.15em;
-}
 
 html {
     width:100%;
