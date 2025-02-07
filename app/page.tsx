@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import NightMode from "../styles/AppNightMode.module.css";
 import LightMode from "../styles/AppLightMode.module.css";
 
-// import { BackgroundColorNightMode, BackgroundColorLightMode, getCookies, cookieValueMatch } from "./utils/index";
 import * as utils from "./utils/index";
 
 
@@ -24,21 +23,28 @@ export default function Home() {
   // style
   const [style,setStyle] = useState(NightMode);
 
-  // url query handler
+  // url query timer handler
   let intervalID: NodeJS.Timeout;
 
 
-  useEffect(() => {
-    //update background color
-    document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorNightMode;
-    
+  useEffect(() => {    
     // create or update cookie : theme
-    let retCC = utils.createCookie("theme","nightMode",new Date(Date.now() + 30 * utils.oneDay));
+    let retCC = utils.createCookie("theme","nightMode");
     if(retCC === -1) {
       if(utils.cookieValueMatch("theme","lightMode")) {
         setStyle(LightMode);
       }
     }
+
+    //update background color
+    let themeCookie = utils.getCookieValue("theme");
+    if(themeCookie === "lightMode") {
+      document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorLightMode;
+    }
+    else {
+      document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorNightMode;
+    }
+
     setIsLoaded(true);
   },[]);
   
@@ -69,14 +75,16 @@ export default function Home() {
     },500);    
   },[URLSearchParams]);
       
-
+  // toggles between light and night mode
   function toggleLightMode():void {
     if (style === LightMode) {
       setStyle(NightMode);
+      utils.setCookie("theme","nightMode");
       document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorNightMode;
     }
     else {
       setStyle(LightMode);
+      utils.setCookie("theme","lightMode");
       document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorLightMode;
     }
   }
