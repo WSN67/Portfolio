@@ -123,10 +123,12 @@ section {
     display: flex;
     flex-direction: column;
     width: 90%;
-    height: 30%;
+    height: fit-content;
     justify-content: space-around;
     align-items: center;
     list-style-type: none;
+    justify-items: space-around;
+
 }
 
 .listSkillItem {
@@ -135,16 +137,21 @@ section {
     justify-content: center;
     align-items: center;
     width: 80%;
-    height: 20%;
-    padding: 20px;
+    height: 1000px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    height: fit-content;
+    text-decoration: none;
+}
+
+.quitGameButton {
+    text-decoration: none;
+    height: fit-content;
 }
 
 .listSkillItem:hover {
     text-decoration: underline;
-    border-radius: 10px;
-
-    color: var(--BackgroundTextColor-NightMode);
-    border: var(--BackgroundOverlayColor-NightMode) solid 2px;
 }
 
 p {

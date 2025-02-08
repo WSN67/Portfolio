@@ -4,13 +4,25 @@
 
 .listSkillItem {
     color: white;
+    border: solid 1px white;
 }
 
+.listSkillItem:hover {
+    color: black;
+    background-color: var(--BackgroundTextColor-NightMode);
+    transform: scale(0.9);
+    transition: ease-out 500ms;
+    font-weight: bolder;
+    border: none;
+}
 .quitGameButton {
-    text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .quitGameButton:hover {
-    color: var(--BackgroungTextColor-NightMode)
+    color: black;
+}
+
+.SettingsButton {
+    background-color: var(--BackgroundTextColor-NightMode);
 }

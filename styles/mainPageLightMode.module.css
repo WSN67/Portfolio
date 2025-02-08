@@ -1,3 +1,7 @@
 .description {
     color:black;
 }
+
+.SettingsButton {
+    background-color: var(--ButtonsColor-LightMode);
+}
