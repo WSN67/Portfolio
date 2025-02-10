@@ -152,6 +152,11 @@ section {
 
 .listSkillItem:hover {
     text-decoration: underline;
+    transform: scale(0.9);
+    transition: ease-out 500ms;
+    font-weight: bolder;
+    border: none;
+
 }
 
 p {
