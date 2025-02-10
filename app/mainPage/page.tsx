@@ -51,7 +51,7 @@ export default function MainPage() {
             <div id="mainPageContainer">
                 <Avatar />
                 <section>
-                    <p id="description" className={style.description}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto earum in nisi, vel perspiciatis reiciendis quibusdam suscipit sapiente consectetur, vitae officia mollitia totam? Ut, earum. Labore explicabo quia voluptas dolorem?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto earum in nisi, vel perspiciatis reiciendis quibusdam suscipit sapiente consectetur, vitae officia mollitia totam? Ut, earum. Labore explicabo quia voluptas dolorem?</p>
+                    <p className={style.description}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto earum in nisi, vel perspiciatis reiciendis quibusdam suscipit sapiente consectetur, vitae officia mollitia totam? Ut, earum. Labore explicabo quia voluptas dolorem?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto earum in nisi, vel perspiciatis reiciendis quibusdam suscipit sapiente consectetur, vitae officia mollitia totam? Ut, earum. Labore explicabo quia voluptas dolorem?</p>
                     <ul id="mainPageList">
                         <Link className={[style.listSkillItem,"listSkillItem"].join(' ')} href={{pathname:"/about",query: URLquery}}>About me</Link>                
                         <Link className={[style.listSkillItem,"listSkillItem"].join(' ')} href={{pathname:"/devSkills",query: URLquery}}>Dev Skills</Link>                
