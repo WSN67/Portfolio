@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 
 import NightMode from "../../styles/mainPageNightMode.module.css";
 import LightMode from "../../styles/mainPageLightMode.module.css";
-import { BackgroundColorNightMode, BackgroundColorLightMode } from "../utils/index";
 import * as utils from "../utils/index";
 
 export default function MainPage() {
