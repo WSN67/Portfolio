@@ -1,0 +1,16 @@
+.SettingsButton {
+    width: 10vw;
+    height: 10vw;
+    min-width: 50px;
+    max-width: 100px;
+    max-height: 100px;
+    min-height: 50px;
+    margin:20px;
+    cursor:pointer;
+    background: url("../../public/roue-dentee.png");
+    background-size: cover;
+    border:none;
+    border-radius: 10px;
+
+    transition: ease-in-out 0.2s;
+}

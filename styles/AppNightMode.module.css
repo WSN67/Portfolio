@@ -8,12 +8,6 @@
 }
 
 
-
-.SettingsButton {
-    background-color: var(--BackgroundTextColor-NightMode);
-}
-
-
 .LayoutButton {
     color: var(--BackgroundColor-NightMode);
     background-color: var(--BackgroundTextColor-NightMode);

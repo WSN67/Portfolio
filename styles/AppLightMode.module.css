@@ -7,9 +7,6 @@
     background-color: var(--ButtonsColor-LightMode);
 }
 
-.SettingsButton {
-    background-color: var(--ButtonsColor-LightMode);
-}
 
 .LayoutButton {
     color: var(--TextColor-LightMode);

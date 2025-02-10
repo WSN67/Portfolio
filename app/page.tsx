@@ -4,6 +4,7 @@ import "../styles/App.css";
 import Link from "next/link";
 import LayoutChoice from "../components/LayoutChoice";
 import { useEffect, useState } from "react";
+import SettingsButton from "@/components/SettingsButton";
 
 
 import NightMode from "../styles/AppNightMode.module.css";
@@ -88,14 +89,13 @@ export default function Home() {
       document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorLightMode;
     }
   }
-
-
+  
 
   return (
     <main>
       <span>
         <h1 className={[style.MainTitle,"MainTitle"].join(' ')}>PORTFOLIO</h1>
-        <button onClick={toggleLightMode} className={[style.SettingsButton,"SettingsButton ButtonHoverEffect ButtonActiveEffect"].join(' ')} ></button>
+        <SettingsButton toggleLightMode={toggleLightMode} NightModeEnabled={style === NightMode ? true : false} />
       </span>
       {
         layoutChoiceMade ? <><Avatar /><Link href= {{pathname:"/mainPage", query: window.location.search.toString().substring(1)}} className={[style.PlayButton,"PlayButton ButtonHoverEffect ButtonActiveEffect"].join(' ')}>PLAY</Link></> 

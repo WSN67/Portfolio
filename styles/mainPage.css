@@ -77,11 +77,10 @@ span {
     min-height: 50px;
     margin:20px;
     cursor:pointer;
-    background: url("../public/roue-dentee.png");
+    background: url("../public/roue-dentee.png") center center  var(--TextColor-NightMode);
     background-size: cover;
     border:none;
     border-radius: 10px;
-    background-color: var(--BackgroundTextColor-NightMode); /*let this to avoid css loading bugs*/
 
     transition: ease-in-out 0.2s;
 }
