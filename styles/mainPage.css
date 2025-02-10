@@ -81,6 +81,7 @@ span {
     background-size: cover;
     border:none;
     border-radius: 10px;
+    background-color: var(--BackgroundTextColor-NightMode); /*let this to avoid css loading bugs*/
 
     transition: ease-in-out 0.2s;
 }
