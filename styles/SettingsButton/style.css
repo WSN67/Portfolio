@@ -7,7 +7,7 @@
     min-height: 50px;
     margin:20px;
     cursor:pointer;
-    background: url("../../public/roue-dentee.png");
+    background: url("../../public/roue-dentee.png") center center  var(--BackgroundTextColor-NightMode);
     background-size: cover;
     border:none;
     border-radius: 10px;
