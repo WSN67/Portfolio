@@ -1,5 +1,6 @@
 "use client"
-import Avatar from "@/components/Avatar";
+import AvatarDark from "@/components/AvatarDark";
+import AvatarLight from "@/components/AvatarLight";
 import "@/styles/mainPage.css";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -13,6 +14,7 @@ export default function MainPage() {
 
     const [URLquery, setURLquery] = useState("");
     const [style, setStyle] = useState(NightMode);
+    const [Avatar,setAvatar] = useState(AvatarLight);
 
 
     useEffect(() => {
@@ -33,10 +35,12 @@ export default function MainPage() {
     if (style === LightMode) {
       setStyle(NightMode);
       utils.setCookie("theme","nightMode");
+      setAvatar(AvatarLight);
       document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorNightMode;
     }
     else {
       setStyle(LightMode);
+      setAvatar(AvatarDark);
       utils.setCookie("theme","lightMode");
       document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorLightMode;
     }
@@ -49,7 +53,7 @@ export default function MainPage() {
                 <button onClick={toggleLightMode} className={[style.SettingsButton,"SettingsButton ButtonHoverEffect ButtonActiveEffect"].join(' ')} ></button>
                 </span>
             <div id="mainPageContainer">
-                <Avatar />
+                {Avatar}
                 <section>
                     <p className={style.description}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto earum in nisi, vel perspiciatis reiciendis quibusdam suscipit sapiente consectetur, vitae officia mollitia totam? Ut, earum. Labore explicabo quia voluptas dolorem?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto earum in nisi, vel perspiciatis reiciendis quibusdam suscipit sapiente consectetur, vitae officia mollitia totam? Ut, earum. Labore explicabo quia voluptas dolorem?</p>
                     <ul id="mainPageList">

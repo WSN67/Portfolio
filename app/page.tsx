@@ -1,5 +1,6 @@
 "use client"
-import Avatar from "../components/Avatar";
+import AvatarDark from "../components/AvatarDark";
+import AvatarLight from "../components/AvatarLight";
 import "../styles/App.css";
 import Link from "next/link";
 import LayoutChoice from "../components/LayoutChoice";
@@ -20,6 +21,7 @@ export default function Home() {
   const [mobileLayout,setMobileLayout] = useState(false);
   const [layoutChoiceMade,setLayoutChoiceMade] = useState(false);
   const [isLoaded,setIsLoaded] = useState(false);
+  const [Avatar,setAvatar] = useState(AvatarLight);
 
   // style
   const [style,setStyle] = useState(NightMode);
@@ -80,11 +82,13 @@ export default function Home() {
   function toggleLightMode():void {
     if (style === LightMode) {
       setStyle(NightMode);
+      setAvatar(AvatarLight);
       utils.setCookie("theme","nightMode");
       document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorNightMode;
     }
     else {
       setStyle(LightMode);
+      setAvatar(AvatarDark);
       utils.setCookie("theme","lightMode");
       document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorLightMode;
     }
@@ -98,7 +102,7 @@ export default function Home() {
         <SettingsButton toggleLightMode={toggleLightMode} NightModeEnabled={style === NightMode ? true : false} />
       </span>
       {
-        layoutChoiceMade ? <><Avatar /><Link href= {{pathname:"/mainPage", query: window.location.search.toString().substring(1)}} className={[style.PlayButton,"PlayButton ButtonHoverEffect ButtonActiveEffect"].join(' ')}>PLAY</Link></> 
+        layoutChoiceMade ? <>{Avatar}<Link href= {{pathname:"/mainPage", query: window.location.search.toString().substring(1)}} className={[style.PlayButton,"PlayButton ButtonHoverEffect ButtonActiveEffect"].join(' ')}>PLAY</Link></> 
         : <LayoutChoice setDesktopLayout={setDesktopLayout} setLayoutChoiceMade={setLayoutChoiceMade} style={{ LayoutButton: style.LayoutButton, deviceChoiceTitle: style.deviceChoiceTitle }}/>
       }
     </main>
