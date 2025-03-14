@@ -39,13 +39,17 @@ export default function Home() {
       }
     }
 
-    //update background color
+    //update background color and style
     let themeCookie = utils.getCookieValue("theme");
     if(themeCookie === "lightMode") {
       document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorLightMode;
+      style === NightMode ? toggleLightMode() : utils.doNothing();
+
     }
     else {
       document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorNightMode;
+      style === LightMode ? toggleLightMode() : utils.doNothing();
+
     }
 
     setIsLoaded(true);

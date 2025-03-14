@@ -19,6 +19,11 @@ export const oneDay: number = 86400000; // 1 day in milliseconds
 ########################################################
 */
 
+export function doNothing():void{
+    return;
+} 
+
+
 // returns an pair of key-values cookies
 export function getCookies(): { [key: string]: string } {
     let cookies: { [key: string]: string } = {};
