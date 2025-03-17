@@ -12,8 +12,6 @@
 
 #### 1
 
-[x]
-
 - description :
 
     when lightmode if you refresh the page there will be an "error" caused by `setBackgroundColor`
