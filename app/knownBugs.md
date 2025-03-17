@@ -10,14 +10,14 @@
 
 ### Main Page
 
-#### 1
+#### [x] 1
 
 - description :
 
-    when lightmode ==if== you refresh the page there will be an "error" caused by `setBackgroundColor`
+    when lightmode if you refresh the page there will be an "error" caused by `setBackgroundColor`
 
 - how to reproduce :
-  - [x] lightmode ON
+  - lightmode ON
   - refresh page
 
 ---
