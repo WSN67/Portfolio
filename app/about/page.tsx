@@ -61,7 +61,7 @@ export default function AboutPage() {
             </ul>
             <section>
                 <p style={colorTextMode()}>About Website</p>
-                <p style={colorTextMode()}>Known bugs</p>
+                <p style={colorTextMode()}>Known bugs (refer to GitHub page)</p>
             </section>
         </div>
     );

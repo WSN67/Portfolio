@@ -2,15 +2,22 @@
 
 ## todo
 
-### Page xxx
+About Page
+
+- description :
+
+    when lightmode if you navigate back and forward with the arrows or with `alt` + :arrow_left: the settings button doesn't update its color even if you click it
+
+- how to reproduce :
+  - lightmode ON
+  - go back with left  arrow or `alt` + :arrow_left:
+  - go forward with right arrow or `alt` + :arrow_right:
 
 ---
 
 ## fixed
 
-### Main Page
-
-#### 1
+Main Page
 
 - description :
 
