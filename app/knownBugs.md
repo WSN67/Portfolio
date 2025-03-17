@@ -11,7 +11,7 @@ About Page
 - how to reproduce :
   - lightmode ON
   - go back with left  arrow or `alt` + :arrow_left:
-  - go forward with right arrow or `alt`+ :arrow_right:
+  - go forward with right arrow or `alt` + :arrow_right:
 
 ---
 
