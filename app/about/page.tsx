@@ -7,7 +7,7 @@ import "@/styles/AboutPage/style.css"
 import NightMode from "@/styles/AboutPage/AboutNightMode.module.css"
 import LightMode from "@/styles/AboutPage/AboutLightMode.module.css"
 import ProgressBar from "@/components/ProgressBar";
-import { getCookieValue, setBackgroundColor } from "../utils";
+import { getCookieValue, setBackgroundColor,LIGHTMODE_NUM,NIGHTMODE_NUM } from "../utils";
 
 export default function AboutPage() {
     
@@ -17,19 +17,22 @@ export default function AboutPage() {
     useEffect(() => {
         if (getCookieValue("theme") === "lightMode") {  
             toggleLightMode();
+            setBackgroundColor(LIGHTMODE_NUM);
             return;
         }
-        setBackgroundColor("nightMode");
+        setBackgroundColor(NIGHTMODE_NUM);
     },[]);
-
+    
     function toggleLightMode():void{
         if (style === NightMode) {
             setStyle(LightMode);
             setNightModeEnabled(false);
+            setBackgroundColor(LIGHTMODE_NUM);
         }
         else {
             setStyle(NightMode);
             setNightModeEnabled(true);
+            setBackgroundColor(NIGHTMODE_NUM);
 
         }
     }
