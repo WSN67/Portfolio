@@ -22,11 +22,11 @@ export default function MainPage() {
             //update background color and style
             let themeCookie = utils.getCookieValue("theme");
             if(themeCookie === "lightMode") {
-              utils.setBackgroundColor("lightMode");
+              utils.setBackgroundColor(utils.LIGHTMODE_NUM);
               style === NightMode ? toggleLightMode() : utils.doNothing();
             }
             else {
-              utils.setBackgroundColor("nightMode");
+              utils.setBackgroundColor(utils.NIGHTMODE_NUM);
               style === LightMode ? toggleLightMode() : utils.doNothing();
             }
         
