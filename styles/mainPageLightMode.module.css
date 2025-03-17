@@ -2,6 +2,14 @@
     color:black;
 }
 
+.MainTitle {
+    color: var(--TextColor-LightMode);
+}
+
+.MainPageContainer {
+    background-color: var(--BackgroundColor-LightMode);
+}
+
 .SettingsButton {
     background-color: var(--ButtonsColor-LightMode);
 }

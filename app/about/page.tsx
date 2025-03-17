@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import SettingsButton from "@/components/SettingsButton";
 
@@ -7,11 +7,20 @@ import "@/styles/AboutPage/style.css"
 import NightMode from "@/styles/AboutPage/AboutNightMode.module.css"
 import LightMode from "@/styles/AboutPage/AboutLightMode.module.css"
 import ProgressBar from "@/components/ProgressBar";
+import { getCookieValue, setBackgroundColor } from "../utils";
 
 export default function AboutPage() {
     
     const [style,setStyle] = useState(NightMode);
     const [NightModeEnabled,setNightModeEnabled] = useState(true);
+
+    useEffect(() => {
+        if (getCookieValue("theme") === "lightMode") {  
+            toggleLightMode();
+            return;
+        }
+        setBackgroundColor("nightMode");
+    },[]);
 
     function toggleLightMode():void{
         if (style === NightMode) {

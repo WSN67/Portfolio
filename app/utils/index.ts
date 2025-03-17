@@ -6,8 +6,6 @@
 ########################################################
 */
 
-import { get } from "http";
-
 export const BackgroundColorNightMode: string = "#333333";
 export const BackgroundColorLightMode: string = "#d7a7a7cc";
 export const oneDay: number = 86400000; // 1 day in milliseconds
@@ -78,4 +76,15 @@ export function setCookie(cookieName:string, cookieValue:string, expirationDate?
         return;
     }
     document.cookie = `${cookieName}=${cookieValue}; expires=${expirationDate!.toUTCString()}`;
+}
+
+// sets background color of the html element to dark theme
+export function setBackgroundColor(mode:string): void {
+    let bg = document.getElementsByTagName("html")[0];
+    if(mode === "lightMode")  
+        bg.style.backgroundColor = BackgroundColorLightMode;
+    if(mode === "nightMode")
+        bg.style.backgroundColor = BackgroundColorNightMode;
+    else
+        console.log("Invalid mode",mode);
 }

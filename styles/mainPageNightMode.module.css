@@ -1,6 +1,13 @@
 .description {
     color:white;
 }
+.MainTitle {
+    color: var(--TextColor-NightMode);
+}
+
+.MainPageContainer {
+    background-color: var(--BackgroundColor-NightMode);
+}
 
 .listSkillItem {
     color: white;

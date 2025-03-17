@@ -42,12 +42,12 @@ export default function Home() {
     //update background color and style
     let themeCookie = utils.getCookieValue("theme");
     if(themeCookie === "lightMode") {
-      document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorLightMode;
+      utils.setBackgroundColor("lightMode");
       style === NightMode ? toggleLightMode() : utils.doNothing();
-
+      
     }
     else {
-      document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorNightMode;
+      utils.setBackgroundColor("nightMode");
       style === LightMode ? toggleLightMode() : utils.doNothing();
 
     }

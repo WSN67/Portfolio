@@ -22,11 +22,11 @@ export default function MainPage() {
             //update background color and style
             let themeCookie = utils.getCookieValue("theme");
             if(themeCookie === "lightMode") {
-              document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorLightMode;
+              utils.setBackgroundColor("lightMode");
               style === NightMode ? toggleLightMode() : utils.doNothing();
             }
             else {
-              document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorNightMode;
+              utils.setBackgroundColor("nightMode");
               style === LightMode ? toggleLightMode() : utils.doNothing();
             }
         
@@ -49,12 +49,12 @@ export default function MainPage() {
   }
 
     return (
-        <main>
+        <>
             <span>
-                <h1 className="MainTitle">PORTFOLIO</h1>
+                <h1 className={["MainTitle",style.MainTitle].join(' ')}>PORTFOLIO</h1>
                 <button onClick={toggleLightMode} className={[style.SettingsButton,"SettingsButton ButtonHoverEffect ButtonActiveEffect"].join(' ')} ></button>
                 </span>
-            <div id="mainPageContainer">
+            <div className={["mainPageContainer",style.mainPageContainer].join(' ')}>
                 {Avatar}
                 <section>
                     <p className={style.description}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto earum in nisi, vel perspiciatis reiciendis quibusdam suscipit sapiente consectetur, vitae officia mollitia totam? Ut, earum. Labore explicabo quia voluptas dolorem?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto earum in nisi, vel perspiciatis reiciendis quibusdam suscipit sapiente consectetur, vitae officia mollitia totam? Ut, earum. Labore explicabo quia voluptas dolorem?</p>
@@ -66,6 +66,6 @@ export default function MainPage() {
                     </ul>
                 </section>
             </div>
-        </main>
+        </>
     );
 }
