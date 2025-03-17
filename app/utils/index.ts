@@ -9,6 +9,8 @@
 export const BackgroundColorNightMode: string = "#333333";
 export const BackgroundColorLightMode: string = "#d7a7a7cc";
 export const oneDay: number = 86400000; // 1 day in milliseconds
+export const LIGHTMODE_NUM: number = 1; // used for setBackgroundColor()
+export const NIGHTMODE_NUM: number = 2;
 
 
 /*
@@ -79,12 +81,16 @@ export function setCookie(cookieName:string, cookieValue:string, expirationDate?
 }
 
 // sets background color of the html element to dark theme
-export function setBackgroundColor(mode:string): void {
+// 1 : light mode
+// 2 : night mode
+export function setBackgroundColor(mode: number): void {
     let bg = document.getElementsByTagName("html")[0];
-    if(mode === "lightMode")  
+    if (!bg)
+        throw new Error("html element not found");
+    if (mode === LIGHTMODE_NUM) // 1
         bg.style.backgroundColor = BackgroundColorLightMode;
-    if(mode === "nightMode")
+    else if (mode === NIGHTMODE_NUM) // 2
         bg.style.backgroundColor = BackgroundColorNightMode;
     else
-        console.log("Invalid mode",mode);
+        console.log("Invalid mode", mode);
 }
