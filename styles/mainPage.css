@@ -137,6 +137,7 @@ section {
     height: 1000px;
     padding: 10px;
     margin: 5px;
+    border: solid 1px;
     border-radius: 10px;
     height: fit-content;
     text-decoration: none;

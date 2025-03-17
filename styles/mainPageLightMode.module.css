@@ -13,3 +13,13 @@
 .SettingsButton {
     background-color: var(--ButtonsColor-LightMode);
 }
+
+.listSkillItem {
+    color: black;
+    border-color: black;
+}
+
+.listSkillItem:hover {
+    color: white;
+    background-color: var(--TextColor-LightMode);
+}
