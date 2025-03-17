@@ -1,6 +1,6 @@
 # **Known Bugs**
 
-## todo
+## todo :construction:
 
 About Page
 
@@ -15,7 +15,7 @@ About Page
 
 ---
 
-## fixed
+## fixed :white_check_mark:
 
 Main Page
 
