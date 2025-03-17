@@ -6,7 +6,7 @@ About Page
 
 - description :
 
-    when lightmode if you navigate back and forward with the arrows or with `alt` + :arrow_left: the settings button doesn't update its color even if you click it
+    when lightmode if you navigate back and forward with the arrows or with `alt` + :arrow_left: / :arrow_right: the settings button doesn't update its color even if you click it
 
 - how to reproduce :
   - lightmode ON
