@@ -30,30 +30,29 @@ export default function Home() {
   let intervalID: NodeJS.Timeout;
 
 
-  useEffect(() => {    
+  useEffect(() => {
     // create or update cookie : theme
-    let retCC = utils.createCookie("theme","nightMode");
-    if(retCC === -1) {
-      if(utils.cookieValueMatch("theme","lightMode")) {
+    let retCC = utils.createCookie("theme", "nightMode");
+    if (retCC === -1) {
+      if (utils.cookieValueMatch("theme", "lightMode")) {
         setStyle(LightMode);
       }
     }
 
     //update background color and style
     let themeCookie = utils.getCookieValue("theme");
-    if(themeCookie === "lightMode") {
-      utils.setBackgroundColor("lightMode");
+    if (themeCookie === "lightMode") {
+      utils.setBackgroundColor(utils.LIGHTMODE_NUM);
       style === NightMode ? toggleLightMode() : utils.doNothing();
-      
+
     }
     else {
-      utils.setBackgroundColor("nightMode");
+      utils.setBackgroundColor(utils.NIGHTMODE_NUM);
       style === LightMode ? toggleLightMode() : utils.doNothing();
-
     }
 
     setIsLoaded(true);
-  },[]);
+  }, []);
   
 
   // clears interval when layout choice is made
@@ -88,13 +87,13 @@ export default function Home() {
       setStyle(NightMode);
       setAvatar(AvatarLight);
       utils.setCookie("theme","nightMode");
-      document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorNightMode;
+      utils.setBackgroundColor(utils.NIGHTMODE_NUM);
     }
     else {
       setStyle(LightMode);
       setAvatar(AvatarDark);
       utils.setCookie("theme","lightMode");
-      document.getElementsByTagName("html")[0].style.backgroundColor = utils.BackgroundColorLightMode;
+      utils.setBackgroundColor(utils.LIGHTMODE_NUM);
     }
   }
   
